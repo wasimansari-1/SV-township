@@ -947,5 +947,78 @@ function gtag_report_conversion(url) {
         }
     });
 </script>
+
+
+<script>
+
+document.querySelectorAll(".contact-form").forEach((form)=>{
+
+    form.addEventListener("submit", async function(e){
+
+        e.preventDefault();
+
+        const submitButton = this.querySelector("button");
+
+        submitButton.innerHTML = "Submitting...";
+
+        submitButton.disabled = true;
+
+        let formData = new FormData(this);
+
+        let data = {
+
+            name: formData.get("name"),
+
+            email: formData.get("email"),
+
+            phone: formData.get("phone"),
+
+            message: formData.get("message")
+
+        };
+
+        try {
+
+            let response = await fetch("/api/contact", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(data)
+
+            });
+
+            let result = await response.json();
+
+            if(result.success){
+
+                alert("Thank You! Form Submitted Successfully");
+
+                this.reset();
+
+            } else {
+
+                alert("Something Went Wrong");
+
+            }
+
+        } catch (error) {
+
+            alert("Server Error");
+
+        }
+
+        submitButton.innerHTML = "Submit";
+
+        submitButton.disabled = false;
+
+    });
+
+});
+
+</script>
 </body>
 </html>
