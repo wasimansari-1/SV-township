@@ -664,7 +664,7 @@ function gtag_report_conversion(url) {
                         <!--<h5 class="sec_title">About Builder</h5>-->
                         <h4 class="section_heading"><img src="images/send-mail.png" alt="send mail" class="img-fluid form_img"> Send A Message !</h4>
                     </div>
-               <form action="mail.php" method="post">
+               <form class="contact-form">
 				<div class="form an_form" autocomplete="off">
             <div class="row mx_-20">
                 <div class="col-md-12 px_20">
@@ -794,7 +794,7 @@ function gtag_report_conversion(url) {
             <h5 class="location">Plots Near Jewar Airport</h5>
             <h4 class="form_price">Starts At 30 Lacs <span>Onwards</span></h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-            <form action="mail.php" method="post">
+        <form class="contact-form">
             <div class="form-group mx-0">
                 <label for="name">Name*</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Name" autocomplete="false" title="Enter Name" required="">
@@ -959,6 +959,8 @@ document.querySelectorAll(".contact-form").forEach((form)=>{
 
         const submitButton = this.querySelector("button");
 
+        let oldText = submitButton.innerHTML;
+
         submitButton.innerHTML = "Submitting...";
 
         submitButton.disabled = true;
@@ -997,7 +999,9 @@ document.querySelectorAll(".contact-form").forEach((form)=>{
 
                 alert("Thank You! Form Submitted Successfully");
 
-                this.reset();
+                form.reset();
+
+                $('#modal1').modal('hide');
 
             } else {
 
@@ -1011,7 +1015,7 @@ document.querySelectorAll(".contact-form").forEach((form)=>{
 
         }
 
-        submitButton.innerHTML = "Submit";
+        submitButton.innerHTML = oldText;
 
         submitButton.disabled = false;
 

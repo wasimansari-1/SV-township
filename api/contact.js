@@ -3,8 +3,7 @@ export default async function handler(req, res) {
     if (req.method !== "POST") {
 
         return res.status(405).json({
-            success: false,
-            message: "Method Not Allowed"
+            success: false
         });
 
     }
@@ -13,7 +12,7 @@ export default async function handler(req, res) {
 
         const { name, email, phone, message } = req.body;
 
-        console.log("New Form Submission");
+        console.log("New Lead");
 
         console.log({
             name,
@@ -23,15 +22,13 @@ export default async function handler(req, res) {
         });
 
         return res.status(200).json({
-            success: true,
-            message: "Form Submitted Successfully"
+            success: true
         });
 
     } catch (error) {
 
         return res.status(500).json({
-            success: false,
-            message: "Server Error"
+            success: false
         });
 
     }
