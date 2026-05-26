@@ -969,13 +969,13 @@ document.querySelectorAll(".contact-form").forEach((form)=>{
 
         let data = {
 
-            name: formData.get("name"),
+            name: formData.get("name") || "",
 
-            email: formData.get("email"),
+            email: formData.get("email") || "",
 
-            phone: formData.get("phone"),
+            phone: formData.get("phone") || "",
 
-            message: formData.get("message")
+            message: formData.get("message") || ""
 
         };
 
@@ -993,23 +993,21 @@ document.querySelectorAll(".contact-form").forEach((form)=>{
 
             });
 
-            let result = await response.json();
-
-            if(result.success){
+            if(response.ok){
 
                 alert("Thank You! Form Submitted Successfully");
 
                 form.reset();
 
-                $('#modal1').modal('hide');
-
             } else {
 
-                alert("Something Went Wrong");
+                alert("Submission Failed");
 
             }
 
         } catch (error) {
+
+            console.log(error);
 
             alert("Server Error");
 
