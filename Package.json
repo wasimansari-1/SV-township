@@ -1,11 +1,9 @@
 {
-  "name": "sv-township",
+  "name": "sv-township-landing",
   "version": "1.0.0",
-  "description": "SV Township – Yamuna Expressway landing page",
+  "private": true,
+  "description": "SV Township landing page for Vercel with contact form email delivery",
   "dependencies": {
-    "nodemailer": "^6.9.9"
-  },
-  "engines": {
-    "node": "18.x"
+    "nodemailer": "^6.9.16"
   }
 }

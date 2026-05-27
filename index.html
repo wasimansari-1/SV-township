@@ -9,7 +9,7 @@
 	<title>SV Township, Yamuna Expressway, Plots Near Jewar Airport</title>
 	<meta name="description" content="SV Township offers premium residential plots of 100 Sqyd, 150 Sqyd, and 200 Sqyd along the Yamuna Expressway, near the Jewar Airport. More Info Contact Us: 9625608176.">
 	<meta name="keywords" content="SV Township, SV Plots, SVe Yamuna Expressway, Plots in Jewar Airport, Plots in Yamuna Expressway, Residential Plots near Jewar Airport">
-	<link rel="canonical" href="index-1.htm">
+	<link rel="canonical" href="/">
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -76,15 +76,6 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- Google Ads conversion pixel -->
-<script>
-  gtag('event', 'conversion', {
-      'send_to': 'AW-11004816839/cIKpCLeQuPkbEMfbwP8o',
-      'value': 1.0,
-      'currency': 'INR'
-  });
-</script>
-
 <!-- ═══════════════════════════════════════
      LOADING OVERLAY
 ════════════════════════════════════════ -->
@@ -97,7 +88,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      NAVBAR
 ════════════════════════════════════════ -->
 <nav class="navbar">
-    <a class="navbar-brand" href="index-1.htm">
+    <a class="navbar-brand" href="/">
         <img src="images/project-logo.png" alt="SV Township Yamuna Expressway" class="img-fluid d_sm_none builder_logo">
         <img src="images/project-logo.png" alt="SV Township" class="img-fluid d-none d_sm_block">
     </a>
@@ -739,7 +730,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             headers: { 'Content-Type': 'application/json' },
             body:    JSON.stringify(data)
         })
-        .then(function(res) { return res.json(); })
+        .then(function(res) {
+            if (!res.ok) throw new Error('Server returned ' + res.status);
+            return res.json();
+        })
         .then(function() {
             hideOverlay();
             window.location.href = THANKS_URL;
