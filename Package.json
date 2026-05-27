@@ -1,8 +1,6 @@
 {
-  "name": "sv-township-landing",
+  "name": "sv-township",
   "version": "1.0.0",
-  "private": true,
-  "description": "SV Township landing page for Vercel with contact form email delivery",
   "dependencies": {
     "nodemailer": "^6.9.16"
   }
