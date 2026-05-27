@@ -1,0 +1,11 @@
+{
+  "name": "sv-township",
+  "version": "1.0.0",
+  "description": "SV Township – Yamuna Expressway landing page",
+  "dependencies": {
+    "nodemailer": "^6.9.9"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

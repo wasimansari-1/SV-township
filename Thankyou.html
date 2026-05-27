@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You – SV Township</title>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-55WJZLHF');</script>
+<!-- End Google Tag Manager -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:   #c9a84c;
+      --dark:   #0e2218;
+      --mid:    #1a3c2e;
+      --light:  #f4efe6;
+      --white:  #ffffff;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── decorative background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(201,168,76,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 100% 100%, rgba(26,60,46,.6)   0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── floating orbs ── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .25;
+      animation: drift 14s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    .orb-1 { width: 420px; height: 420px; background: var(--gold); top: -120px; left: -100px; animation-delay: 0s; }
+    .orb-2 { width: 340px; height: 340px; background: #2e7d52; bottom: -80px;  right: -80px; animation-delay: -6s; }
+    @keyframes drift { from { transform: translate(0, 0); } to { transform: translate(30px, 20px); } }
+
+    /* ── card ── */
+    .card {
+      position: relative;
+      z-index: 10;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: 24px;
+      padding: 60px 56px 52px;
+      max-width: 560px;
+      width: calc(100% - 40px);
+      text-align: center;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 40px 80px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08);
+      animation: slideUp .7s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── tick circle ── */
+    .tick-wrap {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--mid), #2e7d52);
+      border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+      animation: popIn .6s .3s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(.4); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .tick-wrap svg { width: 44px; height: 44px; }
+    .tick-path {
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: drawTick .5s .9s ease forwards;
+    }
+    @keyframes drawTick { to { stroke-dashoffset: 0; } }
+
+    /* ── text ── */
+    .label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      animation: fadeIn .5s .5s both;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      animation: fadeIn .5s .6s both;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .sub {
+      font-size: 15px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      animation: fadeIn .5s .7s both;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── info boxes ── */
+    .info-row {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 36px;
+      animation: fadeIn .5s .8s both;
+    }
+    .info-box {
+      flex: 1;
+      background: rgba(201,168,76,.08);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 14px;
+      padding: 16px 12px;
+    }
+    .info-box .ico { font-size: 22px; margin-bottom: 6px; }
+    .info-box p  { font-size: 12px; color: rgba(255,255,255,.5); margin-bottom: 2px; }
+    .info-box strong { font-size: 13px; color: var(--white); }
+
+    /* ── buttons ── */
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeIn .5s .95s both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+    .btn-gold  { background: var(--gold); color: var(--dark); }
+    .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,.25); color: var(--white); }
+
+    /* ── divider ── */
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 28px;
+      animation: fadeIn .5s .75s both;
+    }
+
+    /* ── logo ── */
+    .logo-wrap { margin-bottom: 24px; animation: fadeIn .5s .2s both; }
+    .logo-wrap img { max-width: 160px; filter: brightness(1.1); }
+
+    /* ── countdown ── */
+    .countdown {
+      font-size: 12px;
+      color: rgba(255,255,255,.3);
+      margin-top: 24px;
+      animation: fadeIn .5s 1.1s both;
+    }
+    .countdown span { color: var(--gold); font-weight: 500; }
+
+    @media (max-width: 480px) {
+      .card { padding: 40px 24px 36px; }
+      .info-row { flex-direction: column; }
+      .btn-row { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55WJZLHF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="card">
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img src="images/project-logo.png" alt="SV Township" onerror="this.style.display='none'" />
+    </div>
+
+    <!-- Tick animation -->
+    <div class="tick-wrap">
+      <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="tick-path" d="M12 26 L22 36 L40 18"
+          stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <p class="label">Enquiry Received</p>
+    <h1>Shukriya! <em>Aapka<br/>swagat hai.</em></h1>
+
+    <div class="divider"></div>
+
+    <p class="sub">
+      Aapki enquiry hum tak pahunch gayi hai.<br />
+      Hamare team member jald hi aapse sampark karenge.
+    </p>
+
+    <!-- Info boxes -->
+    <div class="info-row">
+      <div class="info-box">
+        <div class="ico">📍</div>
+        <p>Location</p>
+        <strong>Yamuna Expressway</strong>
+      </div>
+      <div class="info-box">
+        <div class="ico">✈️</div>
+        <p>Nearest</p>
+        <strong>Jewar Airport</strong>
+      </div>
+      <div class="info-box">
+        <div class="ico">📞</div>
+        <p>Call Us</p>
+        <strong>9625608176</strong>
+      </div>
+    </div>
+
+    <!-- CTA buttons -->
+    <div class="btn-row">
+      <a href="index.htm" class="btn btn-gold">
+        🏠 Homepage Par Jaayein
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=+919625608176&text=Hello%2C%20Maine%20SV%20Township%20ke%20liye%20enquiry%20ki%20hai." 
+         target="_blank" class="btn btn-outline">
+        💬 WhatsApp Karen
+      </a>
+    </div>
+
+    <!-- Auto redirect countdown -->
+    <p class="countdown" id="cdText">
+      <span id="cdNum">10</span> seconds mein automatically homepage par redirect ho jaayenge…
+    </p>
+
+  </div>
+
+  <script>
+    // Countdown + auto redirect
+    let secs = 10;
+    const numEl = document.getElementById('cdNum');
+    const timer = setInterval(() => {
+      secs--;
+      if (numEl) numEl.textContent = secs;
+      if (secs <= 0) {
+        clearInterval(timer);
+        window.location.href = 'index.htm';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
